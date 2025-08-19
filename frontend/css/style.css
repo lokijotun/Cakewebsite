@@ -1,0 +1,251 @@
+/* ------------------------- */
+/* --- Design System --- */
+/* ------------------------- */
+:root {
+    --bg-color: #fdfaf7;
+    --text-color: #4f3b31;
+    --pink-accent: #ff85a2; 
+    --pink-darker: #f06989;
+    --mint-green: #78e0c2;
+    --font-heading: 'Pacifico', cursive;
+    --font-body: 'Quicksand', sans-serif;
+}
+
+/* ------------------------- */
+/* --- General Setup --- */
+/* ------------------------- */
+html {
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    overflow-x: hidden;
+}
+
+main {
+    position: relative;
+    z-index: 1;
+}
+
+.logo {
+    display: flex; /* This is the key part! */
+    align-items: center; /* Vertically aligns the text and image */
+    gap: 0.5rem; /* Adds a small space between them */
+}
+
+.logo img {
+    height: 70px; /* Adjust the size of your logo */
+}
+
+/* ------------------------- */
+/* --- Background Blobs --- */
+/* ------------------------- */
+body::before, body::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+    opacity: 0.5;
+    filter: blur(80px);
+}
+
+body::before {
+    width: 300px;
+    height: 300px;
+    top: -100px;
+    left: -100px;
+    background-color: var(--pink-accent);
+}
+
+body::after {
+    width: 400px;
+    height: 400px;
+    bottom: -150px;
+    right: -150px;
+    background-color: var(--mint-green);
+}
+
+/* ------------------------- */
+/* --- Header & Navigation --- */
+/* ------------------------- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.95) 8%, rgba(255, 255, 255, 0.6) 95%);
+    backdrop-filter: blur(5px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.header.scrolled {
+    padding: 0.8rem 2rem;
+    background: linear-gradient(to right, rgba(255, 255, 255, 1) 35%, rgba(255, 255, 255, 0.7) 65%);
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: font-size 0.3s ease;
+}
+
+.header.scrolled .logo {
+    font-size: 1.5rem;
+}
+
+.nav a {
+    font-weight: 700;
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: var(--pink-darker);
+}
+
+/* ------------------------- */
+/* --- Hero Section --- */
+/* ------------------------- */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh; 
+    padding: 2rem;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: 4.5rem; 
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin: 0 0 2rem 0;
+    color: #7c6c64;
+}
+
+.cta-button {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-color);
+    background-color: var(--pink-accent);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    background-color: var(--pink-darker);
+}
+
+/* ------------------------- */
+/* --- Sections --- */
+/* ------------------------- */
+section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+section h2 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.section-wrapper {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* ------------------------- */
+/* --- Footer --- */
+/* ------------------------- */
+.footer {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    text-align: center;
+    padding: 2rem;
+}
+
+.footer p {
+    margin: 0.5rem 0;
+}
+
+.footer .social-links a {
+    color: var(--bg-color);
+    text-decoration: none;
+    margin: 0 0.5rem;
+    font-weight: 700;
+}
+
+/* ------------------------- */
+/* --- Sprinkle Styles --- */
+/* ------------------------- */
+.sprinkle {
+    position: fixed;
+    top: -30px;
+    width: 8px;
+    height: 20px;
+    background-color: var(--pink-accent);
+    border-radius: 20px;
+    z-index: -2;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes driftDown {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(200vh) translateX(80px) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+@keyframes driftDownReverse {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(200vh) translateX(80px) rotate(-720deg);
+        opacity: 0;
+    }
+}
