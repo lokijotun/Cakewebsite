@@ -13,51 +13,172 @@
     <!-- Link to your CSS file -->
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
 
-    <!-- Header -->
-    <header class="header">
-      <a href="#" class="logo">
-    <img src="images/IMG_20250817_193538.png" alt="Cupcake Icon">
-    <span>CupcakeDelightsTT</span>
-</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#designer">Designer</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+<body>
+    <!-- Frosting Splatters -->
+    <div class="splatter-top-left"></div>
+    <div class="splatter-bottom-right"></div>
+    <div class="blob-1"></div>
+
+
+   <header class="header">
+    <a href="#" class="logo">
+        <img src="images/IMG_20250817_193538.png" alt="CupcakeDelightsTT Logo">
+        <span>CupcakeDelightsTT</span>
+    </a>
+    <nav class="nav">
+        <a href="#gallery">Gallery</a>
+        <a href="#designer">Designer</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
 
     <main>
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-content">
                 <h1>Making cupcakes is Our Delight.</h1>
-                <p>Welcome to CupcakeDelightsTT! Create the custom cake or cupcakes to suit your needs.</p>
-                <a href="#designer" class="cta-button">Order Now!</a>
+                <p>Welcome to CupcakeDelightsTT!</p> 
+                <p>Where we forge your dreams with batter and frosting.</p>
+                <a href="#designer" class="cta-button">Design Your Cake Now!</a>
             </div>
         </section>
 
         <!-- Gallery Section Placeholder -->
-        <section id="gallery">
-            <h2>Our Creations</h2>
-            <p>Gallery of past cakes will go here.</p>
+         <section id="gallery">
+            <div class="section-wrapper">
+                <h2>Our Creations</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">  
+                        <img src="images/IMG-20250817-WA0008.jpg" alt="Custom Cake 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/IMG-20250817-WA0010.jpg" alt="Custom Cake 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/IMG-20250817-WA0007.jpg" alt="Custom Cake 3">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/IMG-20250817-WA0009.jpg" alt="Custom Cake 4">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/IMG-20250817-WA0012.jpg" alt="Custom Cake 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/IMG-20250817-WA0011.jpg" alt="Custom Cake 6">
+                    </div>
+                        <div class="gallery-item">
+                        <img src="images/IMG-20250817-WA0013.jpg" alt="Custom Cake 7">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/IMG-20250817-WA0014.jpg" alt="Custom Cake 8">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/IMG-20250817-WA0015.jpg" alt="Custom Cake 9">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/IMG-20250817-WA0016.jpg" alt="Custom Cake 10">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/IMG-20250817-WA0017.jpg" alt="Custom Cake 11">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/IMG-20250817-WA0018.jpg" alt="Custom Cake 12">
+                    </div>
+                        <div class="gallery-item">
+                        <img src="images/IMG-20250817-WA0019.jpg" alt="Custom Cake 13">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/IMG-20250817-WA0020.jpg" alt="Custom Cake 14">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/IMG-20250817-WA0021.jpg" alt="Custom Cake 15">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/IMG-20250817-WA0022.jpg" alt="Custom Cake 16">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/IMG-20250817-WA0023.jpg" alt="Custom Cake 17">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/IMG-20250817-WA0024.jpg" alt="Custom Cake 18">
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- Designer Section Placeholder -->
+        <!-- UPDATED: Designer Section with Visualizer -->
         <section id="designer">
-            <h2>Design Your Cake</h2>
-            <p>The interactive cake designer tool will go here.</p>
+            <div class="section-wrapper">
+                <h2>Design Your Cake</h2>
+                <form id="cake-form">
+                    <fieldset>
+                        <legend>Cake Flavors</legend>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="vanilla" name="flavor" data-flavor="Vanilla" data-color="#f3e5ab">
+                            <label for="vanilla">Vanilla</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="chocolate" name="flavor" data-flavor="Chocolate" data-color="#5d4037">
+                            <label for="chocolate">Chocolate</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="red-velvet" name="flavor" data-flavor="Red Velvet" data-color="#a83349">
+                            <label for="red-velvet">Red Velvet</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Frosting</legend>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="buttercream" name="frosting" data-flavor="Buttercream" data-color="#fcf4d4">
+                            <label for="buttercream">Buttercream Frosting</label>
+                        </div>
+                         <div class="checkbox-group">
+                            <input type="checkbox" id="cream-cheese" name="frosting" data-flavor="Cream Cheese" data-color="#f8f6f0">
+                            <label for="cream-cheese">Cream Cheese Frosting</label>
+                        </div>
+                    </fieldset>
+
+                        
+                    <fieldset>
+                        <legend>Your Contact Info</legend>
+                        <label for="customerEmail" class="sr-only">Your Email Address</label>
+                        <input type="email" id="customerEmail" name="customerEmail" placeholder="Your Email Address" required>
+                        
+                        <label for="customerContact" class="sr-only">Your Phone Number</label>
+                        <input type="tel" id="customerContact" name="customerContact" placeholder="Your Phone Number (e.g., +1 868 123 4567)" required>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Custom Details</legend>
+                        <label for="description" class="sr-only">Description & Special Requests</label>
+                        <textarea id="description" name="description" rows="2" placeholder="e.g., 'Happy Birthday Sarah!', floral decorations, etc."></textarea>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Inspiration Images</legend>
+                        <p class="form-note">Tip: Hold Ctrl or CMD on your keyboard and click the images you want to select all your images at once.</p>
+                        <label for="image-upload" class="file-upload-label">
+                            <span>Click to Upload Images</span>
+                        </label>
+                        <input type="file" id="image-upload" name="images" accept="image/*" multiple>
+                        <div id="image-preview-container"></div>
+                    </fieldset>
+                    
+                    <button type="submit" class="cta-button">Place Your Order</button>
+                </form>
+            </div>
         </section>
     </main>
 
     <!-- Footer -->
     <footer class="footer" id="contact">
         <h2>Contact Us</h2>
-        <p>Email: contact@cupcakedelightstt.com</p>
-        <p>Phone: +1 868 369-6565</p>
+        <p>Email: CupcakedelightsTT@gmail.com</p>
+        <p>Phone: (868) 456-7890</p>
         <div class="social-links">
-            <a href="#">Instagram @cupcakedelightsTT</a>
-            <a href="#">Facebook</a>
+            <a href="#">Instagram: @CupcakeDelightsTT</a>
         </div>
         <p style="margin-top: 2rem; opacity: 0.7;">© 2025 CupcakeDelightsTT. All Rights Reserved.</p>
     </footer>
