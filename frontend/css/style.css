@@ -452,3 +452,11 @@ input[type="file"] { display: none; }
     clip: rect(0,0,0,0);
     border: 0;
 }
+
+#form-disclaimer {
+    font-size: 0.9rem;
+    color: #7c6c64;
+    margin-top: 1rem;
+    text-align: center;
+    transition: opacity 0.5s ease;
+}

@@ -62,7 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const imageUpload = document.getElementById('image-upload');
     const imagePreviewContainer = document.getElementById('image-preview-container');
     
-
     // Image Preview Handler
     if (imageUpload) {
         imageUpload.addEventListener('change', () => {
@@ -80,21 +79,57 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Form Submission Handler
-    if (cakeForm) {
-        cakeForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-            const submitButton = cakeForm.querySelector('button[type="submit"]');
-            submitButton.disabled = true;
-            submitButton.textContent = 'Sending...';
-            const formData = new FormData(cakeForm);
-            console.log("Form data to be sent:");
-            for (let [key, value] of formData.entries()) {
-                console.log(`${key}:`, value);
-            }
-            setTimeout(() => {
-                submitButton.textContent = 'Order Sent! Thank You!';
-            }, 1500);
+
+// --- Form Submission Handler ---
+if (cakeForm) {
+    cakeForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const submitButton = cakeForm.querySelector('button[type="submit"]');
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+
+        // --- 1. Collect form data (same as before) ---
+        const flavors = Array.from(cakeForm.querySelectorAll('input[name="flavor"]:checked')).map(el => el.dataset.flavor);
+        const frosting = Array.from(cakeForm.querySelectorAll('input[name="frosting"]:checked')).map(el => el.dataset.flavor);
+        const customerEmail = document.getElementById('customerEmail').value;
+        const customerContact = document.getElementById('customerContact').value;
+        const description = document.getElementById('description').value;
+
+        // --- 2. Convert images (same as before) ---
+        const imageFiles = imageUpload.files;
+        const imagePromises = Array.from(imageFiles).map(file => {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onloadend = () => {
+                    const base64String = reader.result.split(',')[1];
+                    resolve({ name: file.name, mimeType: file.type, data: base64String });
+                };
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
         });
-    }
-});
+        const images = await Promise.all(imagePromises);
+
+        // --- 3. Bundle data (same as before) ---
+        const formData = { flavors, frosting, customerEmail, customerContact, description, images };
+
+        // --- 4. Send the data to your Google Apps Script ---
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxvu_BU-NWQohQzpMFaq0MzI-f3Mvis4aFeYv1COwjy6YXRsiSlId99KlwhG2Kya5Ej/exec"; // Make sure this is your latest URL!
+
+        // --- 5. Fire-and-forget the request ---
+        fetch(SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors', // This sends the data without waiting for a response
+            body: JSON.stringify(formData),
+            headers: { "Content-Type": "text/plain;charset=utf-8" }
+        });
+
+        // --- 6. Immediately show success message ---
+        const formDisclaimer = document.getElementById('form-disclaimer');
+        setTimeout(() => {
+            submitButton.textContent = 'Order Sent! Thank You!';
+            formDisclaimer.textContent = "If you don't receive a confirmation email, please check your junk or spam folder. Otherwise, please contact us at the number below.";
+        }, 1500); // 1.5 second delay to feel like it's "sending"
+    });
+}})
