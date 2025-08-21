@@ -115,7 +115,7 @@ if (cakeForm) {
         const formData = { flavors, frosting, customerEmail, customerContact, description, images };
 
         // --- 4. Send the data to your Google Apps Script ---
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxvu_BU-NWQohQzpMFaq0MzI-f3Mvis4aFeYv1COwjy6YXRsiSlId99KlwhG2Kya5Ej/exec"; // Make sure this is your latest URL!
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzjPvUpSgcQ_C8lIuwOmJ0j0hULholwyfQufsg-YGXfFjvlLMzUNwehZFBqzyHHOSkT/exec"; // Make sure this is your latest URL!
 
         // --- 5. Fire-and-forget the request ---
         fetch(SCRIPT_URL, {
